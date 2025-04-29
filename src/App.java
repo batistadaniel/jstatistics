@@ -6,7 +6,6 @@ public class App {
 		System.out.println("JStatistics");
 
 		Scanner leia = new Scanner(System.in);
-		
 
 		// variavel: e um espaco reservado na memoria do computador
 		// variavel: serve para guarda valores
