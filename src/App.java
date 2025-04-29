@@ -57,5 +57,7 @@ public class App {
 
 		// System.out.println(opcaoVariavel);
 
+		//teste
+
 	}
 }
