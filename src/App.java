@@ -48,7 +48,7 @@ public class App {
 
 		String mediana = JOptionPane.showInputDialog(null, "Qual e a medida de tendencia central que mostra o centro da amostra: ").toLowerCase();
 
-		if (mediana.equals("mediana")) {
+		if (mediana.equalsIgnoreCase("mediana")) {
 			JOptionPane.showMessageDialog(null, "Certa resposta!");
 		} else {
 			JOptionPane.showMessageDialog(null, "Resposta errada!", "JStatistics", 0);
