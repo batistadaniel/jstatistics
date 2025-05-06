@@ -3,6 +3,8 @@ import javax.swing.JOptionPane;
 public class App {
 	public static void main(String[] args) throws Exception {
         System.out.println("Aula3 - Switch e Loops");
+
+        // testes
 		
 
 		// O switch e uma estrutura de selecao multipla
