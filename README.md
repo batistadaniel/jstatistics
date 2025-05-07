@@ -2,6 +2,8 @@
 
 Este código implementa um **jogo de lançar dados** utilizando Java. O objetivo é simular o lançamento de um dado de 6 lados e calcular as **probabilidades** dos resultados de cada face do dado após múltiplos lançamentos.
 
+> 🎮 **O arquivo `jogo.jar` está disponível no projeto para que o usuário possa simplesmente baixar e jogar, sem necessidade de compilar o código.**
+
 ### Funcionalidades do código:
 
 1. **Início do Jogo:**
