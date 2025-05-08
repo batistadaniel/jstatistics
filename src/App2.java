@@ -87,7 +87,7 @@ public class App2 {
                     // case 6:
                     //     cont6++;  
                     //     break;
-                    // EXCLUINOD O 6 DO ENCREMENTO TBM
+                    // EXCLUINOD O 6 DO ENCREMENTO TAMBEM
                     default:
                         break;
                 }
