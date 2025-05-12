@@ -1,0 +1,18 @@
+public class Area {
+    
+    // atributos
+    private int id;
+    private String nomeCientifico;
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setnNmeCientifico(String nomeCientifico) {
+        this.nomeCientifico = nomeCientifico;
+    }
+
+    public String getNomeCientifico() {
+        return this.nomeCientifico;
+    }
+}
