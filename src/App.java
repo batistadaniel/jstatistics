@@ -26,7 +26,7 @@ public class App {
         do {
             opcaoMenu = JOptionPane.showInputDialog(null," ---------- Escolha uma opcao ----------\n\n" + 
                     "\n1 - Cadastrar servico"
-                    + "\n2 - Calcular media de areas"
+                    + "\n2 - Calcular    areas"
                     + "\nPara sair digite: sair"
                 );
                 
