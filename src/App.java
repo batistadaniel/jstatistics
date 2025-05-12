@@ -94,29 +94,3 @@ public class App {
         System.out.println("Media das areas calculadas: " + media); 
     }
 }
-
-// do {
-//     opcaoMenu = JOptionPane.showInputDialog(null,
-//         " ---------- Escolha uma opcao ----------\n\n" +
-//         "1 - Cadastrar servico\n" +
-//         "Para sair digite: sair"
-//     );
-
-//     if (opcaoMenu == null || opcaoMenu.equalsIgnoreCase("sair")) {
-//         break;
-//     } else if (opcaoMenu.equals("1")) {
-//         nomeNovoServico = JOptionPane.showInputDialog(null,
-//             "Digite o nome do servico: ",
-//             "Cadastrando servicos",
-//             JOptionPane.PLAIN_MESSAGE
-//         );
-//         servicosCadastrados.add(nomeNovoServico);
-//     } else {
-//         JOptionPane.showMessageDialog(null,
-//             "Opcao invalida! Tente novamente.",
-//             "Erro",
-//             JOptionPane.ERROR_MESSAGE
-//         );
-//     }
-
-// } while (true);
