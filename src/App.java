@@ -1,96 +1,79 @@
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
         // Declarando as variaveis
-        String nomeNovoServico;
-        String opcaoMenu;
-        String tituloCalculoArea = "Calculo de Area";
-        String entradaLargura = "Digite a largura: ";
-        String entradaComprimento = "Digite o comprimento: ";
-        String escolhaMenu2;
-        double valorLargura = 0;
-        double valorCompromento = 0;
-        double valorArea = 0;
-        double tamanhoPequeno = 100;
-        int contadorJardimGrande = 0;
-        double media = 0.0;
-        double soma = 0.0;
-        ArrayList<String> servicosCadastrados = new ArrayList<>(); 
-        ArrayList<Double> areasCalculadas = new ArrayList<>(); 
-        
-        // Menu geral
+        String msgBemVindo = "Alô, Jardim!";
+        String tituloBemVindo = "Bem Vindo";
+        String tituloCadastro = "Cadastro";
+        String entradaNome = "Digite o seu nome: ";
+        String entradaEmdereco = "Digite o seu endereco: ";
+        String opcaoMenuInicial;
+        double area = 0;
+
+
+        ArrayList<Cliente> clientes = new ArrayList<>();
+        ArrayList<Servico> servicos = new ArrayList<>();
+        boolean rodando = true;
+
+        // Boas-vindas
+        JOptionPane.showMessageDialog(null, msgBemVindo, tituloBemVindo, 1);
+
         do {
-            opcaoMenu = JOptionPane.showInputDialog(null," ---------- Escolha uma opcao ----------\n\n" + 
-                    "\n1 - Cadastrar servico"
-                    + "\n2 - Calcular    areas"
-                    + "\nPara sair digite: sair"
-                );
-                
-            if (opcaoMenu.equalsIgnoreCase("sair")){ // saindo do laco
-                break;
-            } else if (opcaoMenu.equals("1")) { // entra na opcao de cadastrar servico
-                nomeNovoServico = JOptionPane.showInputDialog(null, "Digite o nome do servico: ", "Cadastrando servicos", 1);
-                servicosCadastrados.add(nomeNovoServico);
-            } else if (opcaoMenu.equals("2")) { // entra na opcao calcular areas
-                do {
-                    // Calculando a area do jardim.
-                    valorLargura = Double
-                            .parseDouble(JOptionPane.showInputDialog(null, entradaLargura, tituloCalculoArea, 3));
-                    valorCompromento = Double
-                            .parseDouble(JOptionPane.showInputDialog(null, entradaComprimento, tituloCalculoArea, 3));
+            opcaoMenuInicial = JOptionPane.showInputDialog(null," ---------- Escolha uma opcao ----------\n\n" + 
+                    "\n1 - Cadastrar cliente"
+                    + "\n2 - Cadastrar servico"
+                    + "\n3 - Calcular areas de jardins"
+                    + "\n4 - Exibir clientes cadastrados "
+                    + "\n\nPara sair digite: 'sair'"
+            );
 
-                    do { // Validando campos de area
-                        if (valorLargura < 0) {
-                            valorLargura = Double.parseDouble(JOptionPane.showInputDialog(null,
-                                    "Valor invalido!!!\n\n" + entradaLargura, tituloCalculoArea, 3));
-                        } else if (valorCompromento < 0) {
-                            valorCompromento = Double.parseDouble(JOptionPane.showInputDialog(null,
-                                    "Valor invalido!!!\n\n" + entradaComprimento, tituloCalculoArea, 3));
-                        } else {
-                            break;
-                        }
-                    } while (valorLargura > 0 && valorCompromento > 0);
+            opcaoMenuInicial.equalsIgnoreCase(opcaoMenuInicial);
 
-                    valorArea = (valorLargura * valorCompromento);
-                    areasCalculadas.add(valorArea);
+            switch (opcaoMenuInicial.toLowerCase()) {
+                case "1":
+                    // Cadastro de cliente
+                    String nomeCliente = JOptionPane.showInputDialog(null, entradaNome, tituloCadastro, 1);
+                    String enderecoCliente = JOptionPane.showInputDialog(null, entradaEmdereco, tituloCadastro, 1);
+                    Cliente novoCliente = new Cliente(nomeCliente, enderecoCliente);
 
-                    if (valorArea >= tamanhoPequeno) {
-                        contadorJardimGrande++;
-                    }
+                    clientes.add(novoCliente);
 
-                    soma = 0;
-                    for (double areas : areasCalculadas){
-                        soma += areas;
-                    }
+                    novoCliente.exibir();
 
-                    media = (soma / areasCalculadas.size()); 
-                    escolhaMenu2 = JOptionPane.showInputDialog(null, " ----- Escolha uma opcao ----- \n\n1 - Continuar \nDigite 'sair' para sair ", tituloCalculoArea, 0);
-                    if (escolhaMenu2.equalsIgnoreCase("sair")) {
-                        break;
-                    }
-                } while (true);
-            } else {
-                JOptionPane.showMessageDialog(null,
-                    "Opcao invalida! Tente novamente.",
-                    "Erro",
-                    JOptionPane.ERROR_MESSAGE
-                );
+                    break;
+                case "2":
+                    // Cadastro de servico
+                    String nomeNovoServico = JOptionPane.showInputDialog(null, "Digite o nome do servico: ", "Cadastrando servicos", 1);
+
+                    Servico novoServico = new Servico(nomeNovoServico);
+                    servicos.add(novoServico);
+
+                    novoServico.exibir();
+                    break;
+                case "3":
+                    Jardim jardim = new Jardim(servicos);
+                    area = jardim.calcularArea();
+                    break;
+                // case "4":
+                //     clientes     // atualizacoes futuras 
+                //     break;
+                case "sair":
+                    rodando = false;
+                    break;
+            
+                default:
+                    JOptionPane.showMessageDialog(null, "Escolha inválida. Tente novamente.");
+                    break;
             }
-        } while (true);
 
-        // mostra a media das areas calculadas
-        JOptionPane.showMessageDialog(null, "A media das " + areasCalculadas.size() + " areas calculadas e de: " + String.format("%.2f", media) + " m².", tituloCalculoArea, 1);
 
-        // calcula quantos jardins sao grandes
-        JOptionPane.showMessageDialog(null, "A quantidade de jardins grandes maiores que 100m² e de " +  contadorJardimGrande + ".", tituloCalculoArea, 1);
+        } while (rodando);
 
-        System.out.println(servicosCadastrados); 
-        System.out.println(areasCalculadas);
-        System.out.println(areasCalculadas.size());
-        System.out.println("Media das areas calculadas: " + media); 
+        System.out.println(clientes);
+        System.out.println(servicos);
+        System.out.println(area);
     }
 }
