@@ -26,7 +26,6 @@ public class App {
                     "\n1 - Cadastrar cliente"
                     + "\n2 - Cadastrar servico"
                     + "\n3 - Calcular areas de jardins"
-                    + "\n4 - Exibir clientes cadastrados "
                     + "\n\nPara sair digite: 'sair'"
             );
 
