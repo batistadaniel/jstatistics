@@ -24,5 +24,12 @@ public class Duvida1 {
         JOptionPane.showMessageDialog(null, "Area do jardim: " + areaJardim);
         JOptionPane.showMessageDialog(null, "Tipo de servico: " + (tipoServico == 'p'  ? "Poda" : "Corte"));
         JOptionPane.showMessageDialog(null, "Status: " + (concluido == true  ? "Faz o pix AGORA: " + cliente + "voce sabia que seu nome tem " + cliente.length() + " letras.": "Servico em andamento (aguarde)"));
+        mostrarMsg();
+    }
+
+    /*na logica: funcao ou procedimento */
+    /*na POO: metodo */
+    public static void mostrarMsg(){
+        JOptionPane.showMessageDialog(null, "Alo funcao");
     }
 }
